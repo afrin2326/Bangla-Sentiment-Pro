@@ -1,0 +1,18 @@
+# Virtual Environment
+venv/
+myenv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS related files
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
+.flaskenv
