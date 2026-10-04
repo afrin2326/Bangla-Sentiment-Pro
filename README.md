@@ -1,72 +1,207 @@
 # Bangla Sentiment Pro 🇧🇩
-**A Dual-Head Deep Learning System for Sentiment & Emotion Classification**
 
-## 📥 How to Get the Project 
-# Open your terminal and run these commands to clone the repository:
+**Bangla Sentiment Analysis and Emotion Detection using BanglaBERT**
 
-git clone https://github.com/afrin2326/Bangla_Sentiment_Pro.git
-cd Bangla_Sentiment_Pro
+Bangla Sentiment Pro is an NLP-based application designed to analyze the sentiment and detect emotions in Bengali text using BanglaBERT and deep learning. It provides prediction results with confidence scores through an interactive Streamlit interface, supported by a FastAPI backend.
 
+## 🚀 Features
 
----
+* **Sentiment Analysis:** Predicts the sentiment expressed in Bengali text.
+* **Emotion Detection:** Identifies the emotion conveyed by the input text.
+* **BanglaBERT:** Uses a Bengali language model for contextual text understanding.
+* **Confidence Scores:** Displays confidence scores alongside prediction results.
+* **Interactive Web Interface:** Provides a user-friendly interface built with Streamlit.
+* **REST API:** Exposes prediction functionality through FastAPI.
+* **Deep Learning:** Uses PyTorch for model implementation and inference.
 
-## 🛠 Prerequisites
-* Python 3.8 or higher
-* pip (Python Package Manager)
+## 🛠️ Technologies Used
 
----
+| Technology                | Purpose                                   |
+| ------------------------- | ----------------------------------------- |
+| Python                    | Core programming language                 |
+| BanglaBERT                | Bengali language representation           |
+| PyTorch                   | Deep learning and model inference         |
+| FastAPI                   | Backend API                               |
+| Streamlit                 | Interactive web interface                 |
+| Hugging Face Transformers | Transformer model ecosystem               |
+| Pandas                    | Data processing                           |
+| Scikit-learn              | Machine learning utilities and evaluation |
 
-## 🚀 Setup & Installation
+## 🏗️ Project Architecture
 
-### Step 1: Create and Activate Virtual Environment
-# Open your terminal and run the following commands:
+```text
+User
+  |
+  v
+Streamlit Web Interface
+  |
+  v
+FastAPI Backend
+  |
+  v
+Bangla Text Processing
+  |
+  v
+BanglaBERT-based Model
+  |
+  +--> Sentiment Prediction
+  |
+  +--> Emotion Prediction
+  |
+  v
+Prediction Results and Confidence Scores
+```
 
-# 1. Navigate to the project folder
-cd Bangla_Sentiment_Pro
+## 📂 Project Structure
 
-# 2. Create a virtual environment named 'venv'
+```text
+Bangla-Sentiment-Pro/
+│
+├── api/
+│   └── main.py
+│
+├── webapp/
+│   └── app.py
+│
+├── models/
+│   ├── model_state.pt
+│   └── banglabert_model/
+│
+├── requirements.txt
+├── .gitattributes
+└── README.md
+```
+
+*Note: The directory structure above highlights the main application files. Additional files may exist in the repository.*
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+* Python installed on your system
+* Git
+* A compatible environment for PyTorch and Hugging Face Transformers
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/afrin2326/Bangla-Sentiment-Pro.git
+cd Bangla-Sentiment-Pro
+```
+
+### 2. Create a Virtual Environment
+
+```bash
 python -m venv venv
+```
 
-# 3. Activate the environment (For Windows)
-.\venv\Scripts\activate
+Activate the environment.
 
-# 3. Activate the environment (For macOS/Linux)
-# source venv/bin/activate
+**Windows (Git Bash):**
 
----
+```bash
+source venv/Scripts/activate
+```
 
-### Step 2: Install Dependencies
-# Install all required libraries using the requirements.txt file:
+**Windows (Command Prompt):**
 
+```cmd
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
----
+Make sure the required PyTorch and Transformers versions are compatible with your environment.
 
-## 💻 How to Run the Project (রান করার নিয়ম)
+## ▶️ Run the Application
 
-### Step A: Start the Backend (FastAPI Server)
-# Open a NEW terminal, activate the venv, and run the API:
+Start the FastAPI backend in the first terminal:
 
+```bash
 uvicorn api.main:app --reload
+```
 
-# The API will be live at: http://127.0.0.1:8000
+The backend will be available at:
 
----
+`http://127.0.0.1:8000`
 
-### Step B: Start the Frontend (Streamlit Dashboard)
-# Open ANOTHER new terminal tab, activate the venv, and run the UI:
+Open the interactive API documentation:
 
+`http://127.0.0.1:8000/docs`
+
+Start the Streamlit frontend in a second terminal:
+
+```bash
 streamlit run webapp/app.py
+```
 
-# The dashboard will open automatically at: http://localhost:8501
+The web application will be available at:
+
+`http://localhost:8501`
+
+Keep the backend running while using the frontend.
+
+## 🧠 Model Information
+
+The project uses a BanglaBERT-based deep learning model for Bengali text analysis.
+
+The trained model state is stored in:
+
+```text
+models/model_state.pt
+```
+
+The `.pt` file contains the saved PyTorch model state. The corresponding model architecture and tokenizer configuration must also be available for inference.
+
+The repository uses Git Large File Storage (Git LFS) to manage the large model file.
+
+## 🔌 API Usage
+
+The backend exposes a prediction endpoint at:
+
+```text
+POST /predict
+```
+
+You can explore the endpoint, inspect its expected request format, and test predictions through the FastAPI Swagger UI:
+
+`http://127.0.0.1:8000/docs`
+
+The exact request fields and response format are defined by the FastAPI application.
+
+## 🎯 Use Cases
+
+* Bengali social media sentiment analysis
+* Opinion mining from Bengali text
+* Emotion analysis of user-generated content
+* Bengali NLP research and experimentation
+* Text analytics for Bengali-language applications
+
+## 🔮 Future Improvements
+
+* Expand evaluation across diverse Bengali datasets and dialects.
+* Improve robustness to spelling variations and informal language.
+* Add comprehensive model evaluation metrics.
+* Deploy the application for public access.
+* Extend support for additional Bengali NLP tasks.
+
+## 👩‍💻 Author
+
+**Mst Afrin Binte Amin**
+
+Computer Science and Engineering | Machine Learning & NLP Enthusiast
+
+* GitHub: [@afrin2326](https://github.com/afrin2326)
+* Project Repository: [Bangla-Sentiment-Pro](https://github.com/afrin2326/Bangla-Sentiment-Pro)
+
+## 📄 License
+
+A license has not been specified in this README. Add an appropriate `LICENSE` file before distributing the project for reuse.
 
 ---
 
-## 📁 Project Structure
-* **api/**: FastAPI backend logic and endpoints.
-* **models/**: Pre-trained weights (.pt) and encoders (.pkl).
-* **src/**: Model architecture and text preprocessing code.
-* **webapp/**: Streamlit frontend interface.
-
----
-
+*Built to explore Bengali Natural Language Processing through transformer-based deep learning.*
